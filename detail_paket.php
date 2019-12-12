@@ -1,5 +1,10 @@
 <?php
 include 'template/header.php';
+if(empty($_SESSION['id_member'])){
+  echo "<script> alert('Anda harus login terlebih dahulu'); window.location = 'login/';</script>";
+}else{
+  
+}
 ?>
 
 <section class="site-hero overlay page-inside" style="background-image: url(img/hero_2.jpg)">
@@ -106,8 +111,8 @@ include 'template/header.php';
 
                       <?php
                       if (isset($_POST['tambahkan'])) {
-                        $sql = "INSERT INTO pemesanan (id_member, tgl_berangkat,tgl_pulang,no)
-                        VALUES ('1', '$_POST[tgl_berangkat]', '$_POST[tgl_pulang]','$_POST[no]')";
+                        $sql = "INSERT INTO pemesanan (id_member,id_paket, tgl_berangkat,tgl_pulang,no)
+                        VALUES ('$_SESSION[id_member]','$_GET[id_paket]', '$_POST[tgl_berangkat]', '$_POST[tgl_pulang]','$_POST[no]')";
 
                         if (mysqli_query($koneksi, $sql)) {
                           echo "<script>window.alert('Paket Sukses Ditambahkan');
