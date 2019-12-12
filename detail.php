@@ -19,7 +19,7 @@ include 'template/header.php';
     <div class="row">
       <div class="col-md-6">
         <?php
-        $sql = "SELECT * FROM pemesanan JOIN paket ON pemesanan.id_paket = paket.id_paket JOIN member ON pemesanan.id_member= member.id_member WHERE pemesanan.id_member = '1'";
+        $sql = "SELECT * FROM pemesanan JOIN paket ON pemesanan.id_paket = paket.id_paket JOIN member ON pemesanan.id_member= member.id_member WHERE pemesanan.id_pemesanan = '$_GET[id_pemesanan]'";
         $result = mysqli_query($koneksi, $sql);
 
         if (mysqli_num_rows($result) > 0) {
@@ -75,7 +75,7 @@ include 'template/header.php';
                   </tr>
                   <tr>
                     <th scope="row">Total Bayar</th>
-                    <td><?php echo $row['harga']*4; ?></td>
+                    <td>Rp. <?php echo $row['harga']*4; ?></td>
                   </tr>
                 </tbody>
               </table>
@@ -111,13 +111,13 @@ include 'template/header.php';
     if( in_array($imageFileType,$extensions_arr) ){
 
      // Insert record
-     $upload = "INSERT INTO pembayaran (id_pemesanan,gambar,tanggal) VALUES ('1', '$name', '$date')";
+     $upload = "INSERT INTO pembayaran (id_pemesanan,gambar,tanggal) VALUES ('$_GET[id_pemesanan]', '$name', '$date')";
      mysqli_query($koneksi,$upload);
-     $update = "UPDATE pemesanan SET status = 'pending' WHERE id_pemesanan = '1'";
+     $update = "UPDATE pemesanan SET status = 'pending' WHERE id_pemesanan = '$_GET[id_pemesanan]'";
      mysqli_query($koneksi,$update);
      // Upload file
      move_uploaded_file($_FILES['gambar']['tmp_name'],$target_dir.$name);
-
+     echo "<script> alert('pembayaran berhasil'); window.location = 'member.php';</script>";
    }
 
  }

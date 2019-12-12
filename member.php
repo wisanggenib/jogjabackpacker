@@ -6,7 +6,7 @@ include 'template/header.php';
   <div class="container">
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center">
-        <h1 class="heading" data-aos="fade-up">Selamat Datang <br> Saudara Satria</h1>
+        <h1 class="heading" data-aos="fade-up">Selamat Datang <br> Saudara <?=$_SESSION['username']?></h1>
         <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Nikmati liburan anda.</p>
       </div>
     </div>
@@ -37,7 +37,7 @@ include 'template/header.php';
             </thead>
             <tbody>
               <?php
-              $sql = "SELECT * FROM pemesanan JOIN paket ON pemesanan.id_paket = paket.id_paket WHERE pemesanan.id_member = '1'";
+              $sql = "SELECT * FROM pemesanan JOIN paket ON pemesanan.id_paket = paket.id_paket WHERE pemesanan.id_member = '$_SESSION[id_member]'";
               $result = mysqli_query($koneksi, $sql);
 
               if (mysqli_num_rows($result) > 0) {
@@ -52,18 +52,19 @@ include 'template/header.php';
                     <td><?php echo $row['tgl_berangkat'] ?></td>
                     <?php 
                     if ($row['status']=='belum') {
-                      echo "<td class='table-warning'>Belum Bayar</td>";
+                      echo "<td class='table-danger'>Belum Bayar</td>";
+                      echo "<td> <a href='detail.php?id_pemesanan=".$row['id_pemesanan']."'> <button type='button' class='btn2 btn-info'>Detail paket</button> </a></td>";
                     }else if($row['status']=='pending'){
                       echo "<td class='table-warning'>Menunggu Verifikasi Pembayaran</td>";
+                      echo "<td> <button type='button' class='btn2 btn-secondary' disabled>Detail paket</button></td>";
                     }else if($row['status']=='sudah'){
                       echo "<td class='table-success'>Sudah di Bayar</td>";
+                      echo "<td> <button type='button' class='btn2 btn-secondary' disabled>Detail paket</button></td>";
                     }else{
                       echo "Unknown Status ERR 999";
                     }
 
                     ?>
-                    
-                    <td> <a href="detail.php?id_pemesanan=<?php echo $row['id_pemesanan'] ?>"> <button type="button" class="btn2 btn-info">Detail paket</button> </a></td>
                   </tr>
                   <?php
                 }
