@@ -1,5 +1,6 @@
 <?php
 include 'mimin/koneksi.php';
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,10 +48,22 @@ include 'mimin/koneksi.php';
                   <div class="col-md-6">
                     <ul class="list-unstyled menu">
                       <li><a href="index.php">Home</a></li>
-                      <li><a href="member.php">Member</a></li>
+                      <?php
+                        if(empty($_SESSION['id_member'])){
+                          echo"<li><a href='login/'>login</a></li>";
+                        }else{
+                          echo"<li><a href='member.php'>Member</a></li>";
+                        }
+                      ?>
                       <li><a href="about.php">About</a></li>
                       <li><a href="blog.php">Blog</a></li>
                       <li><a href="contact.php">Contact</a></li>
+                      <?php
+                        if(empty($_SESSION['id_member'])){
+                        }else{
+                          echo"<li><a href='logout.php'>Logout</a></li>";
+                        }
+                      ?>
                     </ul>
                   </div>
                   <div class="col-md-6 extra-info">
