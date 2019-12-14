@@ -60,6 +60,9 @@ include 'template/header.php';
                     }else if($row['status']=='sudah'){
                       echo "<td class='table-success'>Sudah di Bayar</td>";
                       echo "<td> <button type='button' class='btn2 btn-secondary' disabled>Detail paket</button></td>";
+                    }else if($row['status']=='tolak'){
+                      echo "<td class='table-warning'>Silahkan Upload Bukti Bayar baru</td>";
+                      echo "<td> <button type='button' class='btn2 btn-secondary' disabled>Detail paket</button></td>";
                     }else{
                       echo "Unknown Status ERR 999";
                     }

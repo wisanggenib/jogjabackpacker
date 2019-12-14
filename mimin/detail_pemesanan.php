@@ -84,8 +84,8 @@
                                             </div>
                                         </div>
                                         <div class="form-example-int mg-t-15">
-                                            <button class="btn btn-success notika-btn-success">Terima</button>
-                                            <button class="btn btn-danger notika-btn-danger">Tolak</button>
+                                            <a href="terima_pesanan.php?id_pemesanan=<?=$row['id_pemesanan']?>"> <button class="btn btn-success notika-btn-success">Terima</button> </a>
+                                            <a href="tolak_pesanan.php?id_pemesanan=<?=$row['id_pemesanan']?>"> <button class="btn btn-danger notika-btn-danger">Tolak</button> </a>
                                         </div>
                                     </div>
                                 </div>

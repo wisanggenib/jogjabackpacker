@@ -67,8 +67,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2>Pesanan Belum Bayar</h2>
-                            <p>List pesanan yang belum bayar.</p>
+                            <h2>Pesanan Belum Bayar dan di Tolak</h2>
+                            <p>List pesanan yang belum bayar dan Ditolak</p>
                         </div>
                         <div class="table-responsive">
                             <table id="data-table-basic" class="table table-striped">
@@ -78,11 +78,12 @@
                                         <th>Tanggal Berangkat</th>
                                         <th>Paket</th>
                                         <th>No</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $sql = "SELECT * FROM pemesanan JOIN paket ON pemesanan.id_paket = paket.id_paket JOIN member ON pemesanan.id_member = member.id_member WHERE pemesanan.status = 'belum'";
+                                        $sql = "SELECT * FROM pemesanan JOIN paket ON pemesanan.id_paket = paket.id_paket JOIN member ON pemesanan.id_member = member.id_member WHERE pemesanan.status = 'belum' OR pemesanan.status = 'tolak' ";
                                         $result = mysqli_query($koneksi, $sql);
 
                                         if (mysqli_num_rows($result) > 0) {
@@ -96,6 +97,7 @@
                                         <td><?=$row['tgl_berangkat']?></td>
                                         <td><?=$row['nama']?></td>
                                         <td><?=$row['no']?></td>
+                                        <td><?=$row['status']?></td>
                                     </tr>
                                     <?php
                                     }
