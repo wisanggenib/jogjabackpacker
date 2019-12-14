@@ -89,7 +89,8 @@ if(empty($_SESSION['id_admin'])){
     <!-- Notika icon CSS
 		============================================ -->
     <link rel="stylesheet" href="css/notika-custom-icon.css">
-
+    <!-- data table -->
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -231,7 +232,7 @@ if(empty($_SESSION['id_admin'])){
                     <div class="tab-content custom-menu-content">
                         <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="paket.php">Paket</a></li>
+                                <li><a href="pesanan.php">pesanan</a></li>
                                 </li>
                                 <li><a href="paket.php">Paket</a></li>
                                 <li><a href="index-3.html">Dashboard Three</a>

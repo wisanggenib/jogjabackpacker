@@ -94,6 +94,8 @@
     <!--  Chat JS
 		============================================ -->
     <script src="js/chat/jquery.chat.js"></script>
+    <script src="js/data-table/jquery.dataTables.min.js"></script>
+    <script src="js/data-table/data-table-act.js"></script>
     </body>
 
     </html>
