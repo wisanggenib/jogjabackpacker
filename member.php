@@ -58,11 +58,11 @@ include 'template/header.php';
                       echo "<td class='table-warning'>Menunggu Verifikasi Pembayaran</td>";
                       echo "<td> <button type='button' class='btn2 btn-secondary' disabled>Detail paket</button></td>";
                     }else if($row['status']=='sudah'){
-                      echo "<td class='table-success'>Sudah di Bayar</td>";
+                      echo "<td class='table-success'>Sudah di Bayar, Silahkan menunggu dihubungi admin</td>";
                       echo "<td> <button type='button' class='btn2 btn-secondary' disabled>Detail paket</button></td>";
                     }else if($row['status']=='tolak'){
                       echo "<td class='table-warning'>Silahkan Upload Bukti Bayar baru</td>";
-                      echo "<td> <button type='button' class='btn2 btn-secondary' disabled>Detail paket</button></td>";
+                      echo "<td> <a href='upload_ulang.php?id_pemesanan=".$row['id_pemesanan']."'> <button type='button' class='btn2 btn-info'>Detail paket</button> </a> </td>";
                     }else{
                       echo "Unknown Status ERR 999";
                     }
