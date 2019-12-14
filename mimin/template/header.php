@@ -234,8 +234,9 @@ if(empty($_SESSION['id_admin'])){
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="pesanan.php">pesanan</a></li>
                                 </li>
-                                <li><a href="paket.php">Paket</a></li>
-                                <li><a href="index-3.html">Dashboard Three</a>
+                                <li><a href="paket.php">Paket</a>
+                                </li>
+                                <li><a href="pembayaran.php">pembayaran</a>
                                 </li>
                                 <li><a href="index-4.html">Dashboard Four</a>
                                 </li>
