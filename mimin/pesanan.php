@@ -22,6 +22,7 @@
                                         <th>Tanggal Berangkat</th>
                                         <th>Paket</th>
                                         <th>No</th>
+                                        <th>Call </th>
                                         <th>Detail</th>
                                     </tr>
                                 </thead>
@@ -40,7 +41,8 @@
                                         <td><?=$row['nama_member']?></td>
                                         <td><?=$row['tgl_berangkat']?></td>
                                         <td><?=$row['nama']?></td>
-                                        <td><?=$row['no']?></td>
+                                        <td>0<?=$row['no']?></td>
+                                        <td><a href="https://wa.me/62<?=$row['no']?>?text=Dear%20traveller%20terima%20kasih%20telah%20menggunakan%20jasa%20Jogjabackpacker.id.%0APesanan%20anda%20telah%20kami%20konfimasi." target="_blank"> <button class="btn btn-default btn-icon-notika"><i class="notika-icon notika-phone"></i> Pesan</button></a></td>
                                         <td><a href="detail_pemesanan.php?id_pemesanan=<?=$row['id_pemesanan']?>"> <button class="btn btn-default btn-icon-notika"><i class="notika-icon notika-search"></i> Detail</button></a></td>
                                     </tr>
                                     <?php

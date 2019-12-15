@@ -23,6 +23,7 @@
                                         <th>Tanggal Pulang</th>
                                         <th>Paket</th>
                                         <th>Total Bayar</th>
+                                        <th>Hubungi</th>
                                         <th>No</th>
                                         <th>Selesai</th>
                                     </tr>
@@ -44,6 +45,7 @@
                                         <td><?=$row['tgl_pulang']?></td>
                                         <td><?=$row['nama']?></td>
                                         <td><?=$row['harga']?></td>
+                                        <td><a href="https://wa.me/62<?=$row['no']?>?text=Dear%20traveller%20terima%20kasih%20telah%20menggunakan%20jasa%20Jogjabackpacker.id.%0APesanan%20anda%20telah%20kami%20konfimasi." target="_blank"> <button class="btn btn-default btn-icon-notika"><i class="notika-icon notika-phone"></i> Pesan</button></a></td>
                                         <td><?=$row['no']?></td>
                                         <td><a href="selesai.php?id_pemesanan=<?=$row['id_pemesanan']?>"> <button class="btn btn-danger btn-icon-notika"><i class="notika-icon notika-close"></i> Selesai</button></a></td>
                                     </tr>
