@@ -11,7 +11,7 @@ if(empty($_SESSION['id_member'])){
   <div class="container">
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center">
-        <h1 class="heading" data-aos="fade-up">Selamat Datang <br> Saudara Satria</h1>
+        <h1 class="heading" data-aos="fade-up">Selamat Datang <br> di Jogjabackpacker</h1>
         <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Nikmati liburan anda.</p>
       </div>
     </div>
@@ -93,7 +93,7 @@ if(empty($_SESSION['id_member'])){
                   </div>
                   <div class="row">
                     <div class="col-md-12 form-group" align="center">
-                      <input type="submit" value="Send Message" class="btn btn-primary"
+                      <input type="submit" value="Pesan Sekarang" class="btn btn-primary"
                       id="tambahkan" name="tambahkan" onclick="javascript:checkYesorNo();">
                     </div>
                   </div>

@@ -50,7 +50,7 @@ session_start();
                       <li><a href="index.php">Home</a></li>
                       <?php
                         if(empty($_SESSION['id_member'])){
-                          echo"<li><a href='login/'>login</a></li>";
+                          echo"<li><a href='Login/'>login</a></li>";
                         }else{
                           echo"<li><a href='member.php'>Member</a></li>";
                         }
