@@ -82,7 +82,7 @@
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
-                                            <form action="updateDataPaket.php" method="POST" name="F<?php echo $row1['id_paket'] ?>" id="F<?php echo $row1['id_paket'] ?>">
+                                            <form action="updateDataPaket.php" method="POST" enctype="multipart/form-data" name="F<?php echo $row1['id_paket'] ?>" id="F<?php echo $row1['id_paket'] ?>">
                                                 <div class="modal-body">
                                                     <h2>ID PAKET : <?php echo $row1['id_paket'] ?></h2>
                                                     <input type="hidden" name="id_paket" value="<?php echo $row1['id_paket'] ?>">
@@ -147,6 +147,20 @@
                                                             <div class="form-group">
                                                                 <div class="row">
                                                                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                                                        <label class="hrzn-fm">Gambar</label>
+                                                                    </div>
+                                                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                                                        <div class="nk-int-st">
+                                                                            <input type="file" name="gambar" class="form-control input-sm" placeholder="Masukan Harga Paket" value="<?php echo $row1['harga'] ?>">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-example-int form-horizental mg-t-15">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
                                                                         <label class="hrzn-fm">Destinasi dan Fasilitas</label>
                                                                     </div>
                                                                     <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
@@ -196,7 +210,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <form action="#" action="javascript:void(0);" method="POST" id="formTambah">
+                    <form action="#" action="javascript:void(0);" method="POST" id="formTambah" enctype="multipart/form-data">
                         <div class="normal-table-list mg-t-30">
                             <div class="basic-tb-hd">
                                 <h2>Tambah Paket</h2>
@@ -261,6 +275,20 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                            <label class="hrzn-fm">Gambar</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                <input type="file" name="gambar" class="form-control input-sm" placeholder="Masukan Harga Paket">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int form-horizental mg-t-15">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
                                             <label class="hrzn-fm">Destinasi dan Fasilitas</label>
                                         </div>
                                         <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
@@ -299,8 +327,11 @@
 
                 <?php
                 if (isset($_POST['tambahkan'])) {
-                    $sql = "INSERT INTO paket (nama, detail, harga,rating,etc)
-                            VALUES ('$_POST[nama]', '$_POST[detail]', '$_POST[harga]','$_POST[rating]','$_POST[etc]')";
+                    $nameFile=$_FILES['gambar']['name'];
+                    $file=$_FILES['gambar']['tmp_name'];
+                    move_uploaded_file($file,"../img/paket/$nameFile");
+                    $sql = "INSERT INTO paket (nama, detail, harga,rating,etc,images)
+                            VALUES ('$_POST[nama]', '$_POST[detail]', '$_POST[harga]','$_POST[rating]','$_POST[etc]','$nameFile')";
 
                     if (mysqli_query($koneksi, $sql)) {
                         echo "<script>window.alert('Paket Sukses Ditambahkan');

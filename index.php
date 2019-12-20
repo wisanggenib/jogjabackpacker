@@ -38,8 +38,8 @@ include 'template/header.php';
                 ?>
                 <div class="col-lg-3 col-md-6 visit mb-3" data-aos="fade-right">
 
-                  <a href="restaurant.html"><img src="img/img_1.jpg" alt="Image placeholder" class="img-fluid"> </a>
-                  <h3><a href="restaurant.html"><?php echo $row1['nama'] ?></a></h3>
+                  <img src="img/paket/<?=$row1['images']?>" alt="Image placeholder" class="img-fluid" style="width:500px;height: 250px"> 
+                  <h3><?php echo $row1['nama'] ?></h3>
                   <div>Rp<?php echo $row1['harga'] ?></div>
                   <div class="reviews-star float-left">
                     <?php
